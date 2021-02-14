@@ -1,7 +1,18 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import React from "react";
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
+import Chakra from "../components/Chakra/";
+import Rebass from "../components/Rebass/";
+import Bumbag from "../components/Bumbag/";
+import MaterialUI from "../components/MaterialUI/";
 
 export default function Home() {
+  const [lib, setLib] = React.useState(1);
+
+  const handleChangeLib = (event) => {
+    setLib(event.target.value);
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -9,57 +20,28 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+      <h1>Hello UI</h1>
+      <h2>Which UI do you want to see today?</h2>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+      <select onChange={handleChangeLib}>
+        <option value="1">Chakra</option>
+        <option value="2">Rebass</option>
+        <option value="3">Bumbag</option>
+        <option value="4">Rimble</option>
+        <option value="5">Material UI</option>
+      </select>
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+      <div style={{ marginBottom: "3rem" }} />
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
+      {lib == 1 && <Chakra />}
 
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
+      {lib == 2 && <Rebass />}
 
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
+      {lib == 3 && <Bumbag />}
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
+      {lib == 4 && <Chakra />}
+
+      {lib == 5 && <MaterialUI />}
     </div>
-  )
+  );
 }
