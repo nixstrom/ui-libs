@@ -37,8 +37,14 @@ const Bumbag = () => {
     });
   };
 
+  const theme = {
+    palette: {
+      primary: "hotpink",
+    },
+  };
+
   return (
-    <Provider>
+    <Provider theme={theme}>
       <Modal.State animated={true}>
         <Container style={{ width: "70vw" }}>
           <Flex paddingY="major-4">
