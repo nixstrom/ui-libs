@@ -5,9 +5,10 @@ import Chakra from "../components/Chakra/";
 import Rebass from "../components/Rebass/";
 import Bumbag from "../components/Bumbag/";
 import MaterialUI from "../components/MaterialUI/";
+import Garden from "../components/Garden/";
 
 export default function Home() {
-  const [lib, setLib] = React.useState(1);
+  const [lib, setLib] = React.useState(6);
 
   const handleChangeLib = (event) => {
     setLib(event.target.value);
@@ -24,6 +25,7 @@ export default function Home() {
       <h2>Which UI do you want to see today?</h2>
 
       <select onChange={handleChangeLib}>
+      <option value="6">Garden</option>
         <option value="1">Chakra</option>
         <option value="2">Rebass</option>
         <option value="3">Bumbag</option>
@@ -42,6 +44,8 @@ export default function Home() {
       {lib == 4 && <Chakra />}
 
       {lib == 5 && <MaterialUI />}
+
+      {lib == 6 && <Garden />}
     </div>
   );
 }
